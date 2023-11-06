@@ -1,0 +1,299 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --dk-violet: hsl(268, 75%, 9%);
+    --lt-violet: hsl(268, 47%, 21%);
+    --lt-violet2: hsl(281, 89%, 26%);
+    --vb-violet: hsl(285, 91%, 52%);
+    --vb-violet2: hsl(290, 70%, 36%);
+  
+    --vb-yellow: hsl(52, 100%, 62%);
+  
+    --pl-white: hsl(0, 0%, 100%);
+  
+    --vb-cyan: hsl(176, 100%, 44%);
+    --vb-cyan2: hsl(177, 92%, 70%);
+  
+    --dk-text: hsl(198, 20%, 13%);
+  }
+
+body{
+    width: 100vw;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+}
+
+.wrapper{
+    width: 90%;
+    max-width: 450px;
+}
+
+h1{
+    line-height: 1.2;
+    opacity: 0.75;
+    text-align: center;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+    color: var(--pl-white);
+    text-shadow: 3px 3px 5px black;
+}
+
+button{
+    bottom: unset;
+    cursor: pointer;
+}
+.text_area{
+    /* we wan tto overlap copy and text password part */
+    position: relative;
+    border-radius: 1rem;
+    border-bottom: 0.35rem solid darkred;
+    background-color: var(--dk-text);
+    margin: 1rem 0;
+    padding-top: 0.35rem;
+}
+.display{
+    width: 100%;
+    /* here we get the background color of parent */
+    background-color: transparent;
+    padding: 1.15rem 1rem;
+    color: var(--vb-yellow);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 30px;
+    letter-spacing: 1px;
+    padding-right: 3.25rem;
+    border: none;
+}
+.display::placeholder{
+    position: absolute;
+    color: var(--vb-yellow);
+    text-transform: uppercase;
+    opacity: 0.75;
+    font-size: 1.5rem;
+    line-height: 30px;
+    top: 50%;
+    left: 1.5rem;
+    transform: translateY(-50%);
+}
+.text_area button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1.5rem;
+}
+
+.pass_gen{
+    background-color: var(--dk-text);
+    border-radius: 1rem;
+    border-bottom: 0.35rem solid darkred;
+    padding: 2rem;
+    width: 100%;
+    color: var(--pl-white);
+}
+
+.pass_heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+/* new things to learn how to access by their child simply by using p,div */
+.pass_heading div:nth-child(1){
+    font-size: 1.25rem;
+    color: var(--pl-white);
+}
+.pass_heading div:nth-child(2){
+    font-size: 1.25rem;
+    color: var(--vb-yellow);
+}
+
+
+
+/* strength indicator access */
+.strength{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+
+.strength div:nth-child(1){
+    font-size: 1.25rem;
+    color: var(--pl-white);
+}
+
+.strength div:nth-child(2){
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 4rem;
+}
+
+.final_gen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.password_generator{
+    width: 95%;
+    line-height: 2.2;
+    text-align: center;
+    border-radius: 0.7rem;
+    border-bottom: 0.35rem solid var(--vb-yellow);
+    background: rgb(10, 145, 147);
+    color: var(--vb-yellow);
+    text-transform: uppercase;
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+
+.check{
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    gap: 0 1rem;
+}
+.check input{
+    /* removing the default style as given previously */
+    appearance: none;
+    width: 2rem;
+    height: 2rem;
+    background-color: transparent;
+    border-radius: 3rem;
+    border: 2px solid red;
+    cursor: pointer;
+    position: relative;
+    /* for absolute positioning nearest ancester must be not-static that's why we mark here relative */
+}
+.check input:checked{
+    background-color: var(--vb-yellow);
+}
+    /* for fitting the content before and after any thing */
+.check input:checked::before{
+    content: '✓';
+    position: absolute;
+    font-size: 1.35rem;
+    font-weight: 800;
+    transform: translateX(40%);
+    color: darkred;
+}
+.check label{
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.15rem;
+    letter-spacing: 0.75px;
+    color: var(--pl-white);
+}
+
+.slide{
+    
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: rgba(34,193,195,1);
+    color: red;
+    cursor: pointer;
+    width: 100%;
+    height: 0.8rem;
+    border-radius: 4rem;
+    margin-top: 1.25rem;
+}
+    /* selecting the psudo eleemnt selector for selecting the icon for sliding part */
+    /* webkit engine is in chrome, safari, but in firefox it will not show */
+    /* in firefox you have to use moz range thumb */
+
+.slide::-webkit-slider-thumb{
+    position: relative;
+    -webkit-appearance:none;
+    appearance: none;
+    background-color: var(--vb-yellow);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 4rem;
+    transition: all 100ms ease-in; 
+    box-shadow: 0px 0px 20px 0px darkred;
+}
+.slide:focus{
+    outline: 3px solid var(--vb-yellow);
+}
+.slide::-webkit-slider-thumb:hover{
+    outline: 2px solid var(--vb-yellow);
+    background-color: darkred;
+    box-shadow: 0px 0px 35px 10px darkred;
+}
+
+
+.copy_btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: transparent;
+    height: 2rem;
+    width: 2rem;
+    border: none;
+    outline: none;
+}
+.copy_btn i{
+    scale: 2.2;
+    color: var(--vb-cyan2);
+}
+.active{
+    width: 5rem;
+    height: 2rem;
+    position: relative;
+    bottom: 70%;
+    color: var(--vb-cyan2);
+    text-shadow: 3px 3px 0px red;
+    border-radius: 4rem;
+    font-weight: 500;
+    font-size: 1.5rem;
+    font-family:'Times New Roman', Times, serif;
+    transition: all 500ms ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+/* sir ka not working */
+
+/* .spam_copy{
+    position: absolute;
+    z-index: -1;
+    background-color: var(--vb-violet2);
+    color: var(--vb-yellow);
+    font-size: 1.25rem;
+    top: -35px;
+    left: -25px;
+    padding: 5px 10px;
+    border-radius: 1rem;
+    transform: scale(0);
+    opacity: 0;
+    transform-origin: bottom;
+    transition: all 500ms ease-in-out;
+}
+.spam_copy .active{
+    opacity: 1;
+    transform: scale(1);
+} */
+
+  

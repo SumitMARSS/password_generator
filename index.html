@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>PASSWORD GENERATOR</h1>
+            <!-- display output -->
+            <div class="text_area">
+                <input readonly class="display" placeholder="Password" password-content>
+                <button class="copy_btn">
+                    <span class="active" data-copy></span>
+                    <i class="fa-solid fa-copy" data-copied></i>
+                </button>
+            </div>
+            <!-- input container -->
+            <div class="pass_gen">
+                <!-- password length show -->
+                <div class="pass_heading">
+                    <div>Password Length</div>
+                    <div password-length>0</div>
+                </div>
+                <!-- slider     giving custom attribute -->
+
+                <input type="range" min="1" max="20" class="slide" slider-length>
+
+                <!-- adding all checkbox -->
+                <div class="check">
+                    <input type="checkbox" id="upper" >
+                    <label for="upper">Include Uppercase Letters</label>
+                </div>
+
+                <div class="check">
+                    <input type="checkbox" id="lower" >
+                    <label for="lower">Include Lowercase Letters</label>
+                </div>
+
+                <div class="check">
+                    <input type="checkbox" id="Numbers" >
+                    <label for="Numbers">Include Numbers</label>
+                </div>
+
+                <div class="check">
+                    <input type="checkbox" id="Symbols" >
+                    <label for="Symbols">Include Symbols</label>
+                </div>
+
+                
+                <!-- strength -->
+                <div class="strength">
+                    <div>Strength</div>
+                    <div strength-indicator></div>
+                </div>
+                <div class="final_gen">
+                    <button class="password_generator">GENERATE PASSWORD</button>
+                </div>
+            </div>
+    </div>
+    
+    <script src="https://kit.fontawesome.com/9598a71f17.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>
